@@ -64,7 +64,7 @@ const App = () => {
 
   const departamentos = [...new Set(proveedores.map((p) => p.departamento))];
   const municipios = [...new Set(proveedores.map((p) => p.municipio))];
-  const categorias = [...new Set(proveedores.map((p) => p.categoria))];
+  const categorias = [...new Set(proveedores.map((p) => p.descripcion_categoria_unspsc_principal))];
 
   return (
     <div>
