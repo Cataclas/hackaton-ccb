@@ -165,19 +165,21 @@
   flex-direction: row;
 }
 
-nav button{
+nav button {
   background: #efefef;
   border: none;
   padding: 1rem;
 }
-button{
+
+button {
   box-shadow: 1px 1px 0 0 aqua;
 }
-nav button:hover{
+
+nav button:hover {
   background: #00ffff24;
 }
 
-.chart-wrapper table{
+.chart-wrapper table {
   width: 700px;
   border-collapse: collapse;
   margin: 20px 0;
@@ -185,7 +187,8 @@ nav button:hover{
   text-align: left;
 }
 
-th, td {
+th,
+td {
   padding: 10px 15px;
   border: 1px solid #ddd;
 }
@@ -209,4 +212,72 @@ caption {
   font-weight: bold;
   margin-bottom: 10px;
   text-align: left;
+}
+
+/* Cambios de diseño en pantallas grandes */
+@media (min-width: 768px) {
+  .left-panel {
+    width: 25%;
+  }
+
+  .center-panel {
+    width: 75%;
+  }
+
+  .chart-wrapper>div>div {
+    grid-template-columns: repeat(3, 1fr);
+    /* Asegura que haya 3 columnas en pantallas grandes */
+  }
+
+  /* Si tienes un panel derecho, puedes hacerlo visible aquí */
+  .right-panel {
+    display: block;
+    width: 25%;
+    padding: 1rem;
+    font-size: 14px;
+  }
+}
+
+/* Estilo para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+    /* Acomoda los paneles verticalmente */
+  }
+
+  .left-panel,
+  .center-panel {
+    width: 100%;
+  }
+
+  /* Mejorar la visualización de las gráficas en pantallas pequeñas */
+  .chart-wrapper>div>div {
+    grid-template-columns: 1fr;
+    /* Las gráficas se mostrarán en una sola columna en pantallas pequeñas */
+  }
+  .intro-logo{
+    display: none !important;
+  }
+}
+
+/* Estilo para dispositivos muy pequeños */
+@media (max-width: 480px) {
+  .filters {
+    flex-direction: column;
+    /* Acomoda los filtros en una sola columna */
+    gap: 20px;
+  }
+
+  .ver-mas-btn {
+    padding: 8px 12px;
+    /* Botones más pequeños */
+  }
+
+  .modal-content {
+    width: 90%;
+    /* Modal se hace más pequeño */
+  }
+  .intro-logo{
+    display: none !important;
+  }
 }
