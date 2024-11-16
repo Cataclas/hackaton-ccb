@@ -26,3 +26,38 @@
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
+@media (max-width: 768px) {
+
+  .proveedor-detalle th,
+  .proveedor-detalle td {
+    padding: 6px;
+  }
+}
+
+/* Responsivo para pantallas más pequeñas (móviles) */
+@media (max-width: 480px) {
+  .filtros-container {
+    padding: 0.5rem;
+    font-size: 14px;
+  }
+
+  .filtro select {
+    font-size: 14px;
+    padding: 0.4rem;
+  }
+
+  .filtro label {
+    font-size: 14px;
+  }
+
+  .proveedor-detalle table {
+    font-size: 14px;
+  }
+
+  .proveedor-detalle th,
+  .proveedor-detalle td {
+    padding: 5px;
+    /* Reduce el padding para pantallas más pequeñas */
+  }
+}

@@ -245,9 +245,15 @@ caption {
     /* Acomoda los paneles verticalmente */
   }
 
+
+  .chart-wrapper table {
+    width: 100%;
+  }
+
   .left-panel,
   .center-panel {
     width: 100%;
+    overflow: visible;
   }
 
   /* Mejorar la visualización de las gráficas en pantallas pequeñas */
@@ -255,7 +261,8 @@ caption {
     grid-template-columns: 1fr;
     /* Las gráficas se mostrarán en una sola columna en pantallas pequeñas */
   }
-  .intro-logo{
+
+  .intro-logo {
     display: none !important;
   }
 }
@@ -277,7 +284,9 @@ caption {
     width: 90%;
     /* Modal se hace más pequeño */
   }
-  .intro-logo{
+
+  .intro-logo {
     display: none !important;
   }
 }
+

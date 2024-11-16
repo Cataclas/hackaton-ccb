@@ -1,14 +1,80 @@
 .proveedor-detalle table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.proveedor-detalle th,
+.proveedor-detalle td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.proveedor-detalle tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .proveedor-detalle {
+    padding: 15px;
   }
-  
-  .proveedor-detalle th, .proveedor-detalle td {
-    border: 1px solid #ddd;
+
+  .proveedor-detalle th,
+  .proveedor-detalle td {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .proveedor-detalle p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .proveedor-detalle {
+    padding: 10px;
+  }
+
+  .proveedor-detalle th,
+  .proveedor-detalle td {
     padding: 8px;
+    font-size: 0.8rem;
   }
-  
-  .proveedor-detalle tr:nth-child(even) {
-    background-color: #f9f9f9;
+
+  .proveedor-detalle p {
+    font-size: 0.9rem;
   }
-  
+}
+
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .proveedor-detalle table {
+    width: 90%;
+    /* Reduce el ancho a un 90% en pantallas más pequeñas */
+    margin: 0 auto;
+    /* Centra la tabla */
+  }
+
+  .proveedor-detalle th,
+  .proveedor-detalle td {
+    padding: 6px;
+    /* Reduce el padding para aumentar la compactidad */
+  }
+}
+
+@media (max-width: 480px) {
+  .proveedor-detalle table {
+    width: 100%;
+    /* Asegura que la tabla se ajuste a la pantalla del móvil */
+    margin: 0 10px;
+    /* Aumenta espacio horizontal */
+  }
+
+  .proveedor-detalle th,
+  .proveedor-detalle td {
+    padding: 4px;
+    /* Hace que el padding sea muy pequeño para pantallas más pequeñas */
+  }
+}
