@@ -1,0 +1,17 @@
+.proveedor-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .proveedor-table th, .proveedor-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .proveedor-table tr.selected {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+  }
+  

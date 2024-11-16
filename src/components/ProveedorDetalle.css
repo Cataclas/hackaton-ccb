@@ -1,0 +1,14 @@
+.proveedor-detalle table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .proveedor-detalle th, .proveedor-detalle td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .proveedor-detalle tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  

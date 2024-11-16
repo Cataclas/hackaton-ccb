@@ -1,0 +1,15 @@
+.intro {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .intro h1 {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .intro p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
