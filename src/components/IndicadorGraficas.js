@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Bar, Radar } from 'react-chartjs-2';
-import robotImage from '../assets/images/robot.jpeg';
+
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -132,11 +132,6 @@ const IndicadorGraficas = ({ proveedores, proveedorSeleccionado, obtenerRecomend
         return obtenerRecomendaciones ? (
           <div>
             <h3>
-              <img
-                src="/assets/images/robot.jpeg"
-                alt="Robot IA"
-                style={{ width: '24px', height: '24px', marginRight: '8px', verticalAlign: 'middle' }}
-              />
               Recomendaciones
             </h3>
             <ul>
