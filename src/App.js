@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import ProveedorTable from './components/ProveedorTable';
 import IndicadorGraficas from './components/IndicadorGraficas';
-import ProveedorDetalle from './components/ProveedorDetalle';
 import Filtros from './components/Filtros';
 import Intro from './components/Intro';
+
+import obtenerRecomendacionesCohere from './services/Service'; // Asegúrate de que el nombre sea correcto
+
 import './App.css';
 
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
@@ -15,24 +17,36 @@ const App = () => {
   const [proveedoresFiltrados, setProveedoresFiltrados] = useState([]);
   const [proveedorSeleccionado, setProveedorSeleccionado] = useState(null);
   const [filtros, setFiltros] = useState({ departamento: '', municipio: '', categoria: '' });
+  const [recomendaciones, setRecomendaciones] = useState([]); // Estado correctamente definido
 
   useEffect(() => {
     // Cargar datos desde el archivo JSON local
     fetch('/proveedores.json')
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         setProveedores(data);
-        setProveedoresFiltrados(data); // Inicialmente muestra todos los proveedores
-        setProveedorSeleccionado(data[0]); // Seleccionar el primero por defecto
+        setProveedoresFiltrados(data);
+        setProveedorSeleccionado(data[0]);
       })
-      .catch(error => console.error("Error cargando el JSON:", error));
+      .catch((error) => console.error('Error cargando el JSON:', error));
   }, []);
+
+  useEffect(() => {
+    const fetchRecomendaciones = async () => {
+      if (proveedoresFiltrados.length > 0) {
+        const nuevasRecomendaciones = await obtenerRecomendacionesCohere(proveedoresFiltrados);
+        setRecomendaciones(nuevasRecomendaciones);
+      } else {
+        setRecomendaciones([]);
+      }
+    };
+    fetchRecomendaciones();
+  }, [proveedoresFiltrados]);
 
   const handleFilterChange = (key, value) => {
     const nuevosFiltros = { ...filtros, [key]: value };
     setFiltros(nuevosFiltros);
 
-    // Filtrar los proveedores según los filtros seleccionados
     const filtrados = proveedores.filter((proveedor) => {
       const cumpleDepartamento =
         !nuevosFiltros.departamento || proveedor.departamento === nuevosFiltros.departamento;
@@ -45,14 +59,9 @@ const App = () => {
     });
 
     setProveedoresFiltrados(filtrados);
-    if (filtrados.length > 0) {
-      setProveedorSeleccionado(filtrados[0]);
-    } else {
-      setProveedorSeleccionado(null);
-    }
+    setProveedorSeleccionado(filtrados.length > 0 ? filtrados[0] : null);
   };
 
-  // Obtener valores únicos para los selectores de filtros
   const departamentos = [...new Set(proveedores.map((p) => p.departamento))];
   const municipios = [...new Set(proveedores.map((p) => p.municipio))];
   const categorias = [...new Set(proveedores.map((p) => p.categoria))];
@@ -60,11 +69,9 @@ const App = () => {
   return (
     <div>
       <div className="intro">
-
         <Intro />
       </div>
       <div className="dashboard">
-
         <div className="left-panel">
           <Filtros
             departamentos={departamentos}
@@ -77,15 +84,28 @@ const App = () => {
             onSelectProveedor={setProveedorSeleccionado}
             proveedorSeleccionado={proveedorSeleccionado}
           />
+          <div className="recomendaciones">
+            <h3>Recomendaciones Generadas</h3>
+            {recomendaciones.length > 0 ? (
+              <ul>
+                {recomendaciones.map((recomendacion, index) => (
+                  <li key={index}>{recomendacion}</li>
+                ))}
+              </ul>
+            ) : (
+              <p>No hay recomendaciones disponibles.</p>
+            )}
+          </div>
         </div>
+
         <div className="center-panel">
-          <IndicadorGraficas
-            proveedores={proveedoresFiltrados.length > 0 ? proveedoresFiltrados : proveedores}
-            proveedorSeleccionado={proveedorSeleccionado}
-          />
-        </div>
-        <div className="right-panel">
-          <ProveedorDetalle proveedor={proveedorSeleccionado} />
+          <div className="chart-wrapper">
+            <IndicadorGraficas
+              proveedores={proveedoresFiltrados.length > 0 ? proveedoresFiltrados : proveedores}
+              proveedorSeleccionado={proveedorSeleccionado}
+              obtenerRecomendaciones={obtenerRecomendacionesCohere}
+            />
+          </div>
         </div>
       </div>
     </div>

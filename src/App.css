@@ -64,7 +64,7 @@
   gap: 20px;
 }
 
-.chart-wrapper {
+.chart-wrapper>div>div {
   padding: 1rem;
   overflow: auto;
   width: calc(100% - 2rem);
@@ -163,4 +163,50 @@
   display: flex;
   width: 100%;
   flex-direction: row;
+}
+
+nav button{
+  background: #efefef;
+  border: none;
+  padding: 1rem;
+}
+button{
+  box-shadow: 1px 1px 0 0 aqua;
+}
+nav button:hover{
+  background: #00ffff24;
+}
+
+.chart-wrapper table{
+  width: 700px;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+th, td {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+  color: #333;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+caption {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
 }
