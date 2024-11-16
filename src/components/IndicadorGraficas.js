@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Bar, Radar } from 'react-chartjs-2';
+import robotImage from '../assets/images/robot.jpeg';
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -130,7 +131,14 @@ const IndicadorGraficas = ({ proveedores, proveedorSeleccionado, obtenerRecomend
       case 'recomendaciones':
         return obtenerRecomendaciones ? (
           <div>
-            <h3>Recomendaciones</h3>
+            <h3>
+              <img
+                src="/assets/images/robot.jpeg"
+                alt="Robot IA"
+                style={{ width: '24px', height: '24px', marginRight: '8px', verticalAlign: 'middle' }}
+              />
+              Recomendaciones
+            </h3>
             <ul>
               {obtenerRecomendaciones(proveedores).map((reco, idx) => (
                 <li key={idx}>{reco}</li>
@@ -166,9 +174,9 @@ const IndicadorGraficas = ({ proveedores, proveedorSeleccionado, obtenerRecomend
   return (
     <div>
       <nav>
-        <button onClick={() => setVistaActiva('radar')}>Radar</button>
-        <button onClick={() => setVistaActiva('barras')}>Barras</button>
-        <button onClick={() => setVistaActiva('detalle')}>Detalle Proveedor</button>
+        <button onClick={() => setVistaActiva('radar')}>Compara</button>
+        <button onClick={() => setVistaActiva('barras')}>Analiza</button>
+        <button onClick={() => setVistaActiva('detalle')}>Detalle</button>
       </nav>
       <div>{renderVistaActiva()}</div>
     </div>

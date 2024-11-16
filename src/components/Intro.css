@@ -1,15 +1,27 @@
 .intro {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .intro h1 {
-    font-size: 2rem;
-    color: #333;
-  }
-  
-  .intro p {
-    font-size: 1rem;
-    color: #555;
-  }
-  
+  text-align: center;
+  margin-bottom: 20px;
+  background: #103b5e;
+}
+
+.intro h1 {
+  font-size: 2rem;
+  padding: 1rem 0 0 0;
+  margin: 0;
+  color: #ffa1b5;
+}
+
+.intro p {
+  font-size: x-large;
+  color: white; 
+  padding: 0 0 1rem 0;
+}
+
+.intro-logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+  position: absolute;
+  left: 1rem;
+  top: 1.7rem;
+}
