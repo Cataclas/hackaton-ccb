@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/hackaton-ccb/static/css/main.3cc0d776.css",
-    "main.js": "/hackaton-ccb/static/js/main.f4c39713.js",
+    "main.js": "/hackaton-ccb/static/js/main.aeef2711.js",
     "static/js/453.80efc53e.chunk.js": "/hackaton-ccb/static/js/453.80efc53e.chunk.js",
     "static/media/logo.jpeg": "/hackaton-ccb/static/media/logo.d9f76b509e6df2ffa88f.jpeg",
     "index.html": "/hackaton-ccb/index.html",
     "main.3cc0d776.css.map": "/hackaton-ccb/static/css/main.3cc0d776.css.map",
-    "main.f4c39713.js.map": "/hackaton-ccb/static/js/main.f4c39713.js.map",
+    "main.aeef2711.js.map": "/hackaton-ccb/static/js/main.aeef2711.js.map",
     "453.80efc53e.chunk.js.map": "/hackaton-ccb/static/js/453.80efc53e.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3cc0d776.css",
-    "static/js/main.f4c39713.js"
+    "static/js/main.aeef2711.js"
   ]
 }
