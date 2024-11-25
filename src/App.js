@@ -21,7 +21,8 @@ const App = () => {
 
   useEffect(() => {
     // Cargar datos desde el archivo JSON local
-    fetch('/proveedores.json')
+    const url = `${process.env.PUBLIC_URL}/proveedores.json`;
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
         setProveedores(data);
